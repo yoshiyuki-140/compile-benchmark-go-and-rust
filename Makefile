@@ -8,12 +8,13 @@ RUST_DIR := rust
 bench:
 	@echo "🚀 Running compile-time benchmarks with hyperfine..."
 	@hyperfine \
-	  --warmup 3 \
-	  --runs 5 \
-	  --show-output \
-	  --export-markdown bench-results.md \
-	  "cd $(GO_DIR) && go clean && go build -o guessing_game" \
-	  "cd $(RUST_DIR) && cargo clean && cargo build --release"
+	--warmup 3 \
+		--runs 5 \
+		--show-output \
+		--export-markdown bench-results.md \
+		"cd $(GO_DIR) && go clean && go build -o guessing_game" \
+		"cd $(RUST_DIR) && cargo clean && cargo build --release" \
+		"cd $(RUST_DIR) && cargo clean && cargo build"
 
 # 個別に実行したいとき用
 clean_go:
